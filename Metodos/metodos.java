@@ -7,8 +7,21 @@ package Metodos;
  /* */
 public class metodos {
 
-    private String fecha;
-    private int cantidad;
-    private String tipo;
+    public static void  nuevoCliente(){
+
+    }
+
+    public static void  operaciones(){
+
+    }
+
+    public static void  infoCliente(){
+
+    }
+
+    public static void modificarDatos(){
+
+    }
+
 
 }

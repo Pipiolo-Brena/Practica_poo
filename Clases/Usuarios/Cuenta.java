@@ -21,6 +21,7 @@ public class Cuenta {
     private int rendimiento;
     private ArrayList<Movimiento> movimientos = new ArrayList<>();
 
+    
 
     
 }
