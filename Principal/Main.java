@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.Hashtable;
 
-import Clases.Otras.Banco;
+import Clases.Banco.Banco;
 import Clases.Usuarios.Cliente;
 import Metodos.metodos;
 

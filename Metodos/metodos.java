@@ -1,6 +1,7 @@
 package Metodos;
-import Clases.Otras.Banco;
 import java.util.Scanner;
+
+import Clases.Banco.Banco;
 /**
  * metodos
  */

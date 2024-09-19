@@ -1,5 +1,5 @@
 
-package Clases.Otras;
+package Clases.Banco;
 public class Direccion{
     private String municipio;
     private String colonia;
