@@ -30,7 +30,7 @@ public class metodos {
     }
 
     public static void  operaciones(){
-
+        
     }
 
     public static void  infoCliente(){

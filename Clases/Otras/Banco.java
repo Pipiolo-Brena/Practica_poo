@@ -1,8 +1,6 @@
 package  Clases.Otras;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Collections;
-import java.util.Map;
 import java.util.Set;
 
 import Clases.Usuarios.Cliente;
@@ -12,7 +10,6 @@ public class Banco {
     private String telefono;
     private String horario;
     private Direccion direccion;
-    private Cliente cliente;
     private HashMap<Set<Integer>,Cliente> clientes;
 
     public Banco(String nombre, String telefono, String horario,String municipio, String colonia, int codigoPostal, String calle) {
@@ -36,22 +33,18 @@ public class Banco {
     }
 
     //Corresponde a clientes
+    public void registrarCliente(int numCliente,String nombre,String aPaterno,String aMaterno,String direccion,int telefono){
+        Set<Integer> set = Collections.singleton(numCliente);//Pasa de ser un int a ser un set Integer
+        Cliente cliente= new Cliente(set, nombre,aPaterno,  aMaterno,direccion,telefono);
+        agregarCliente(set, cliente);
+    }
+
     public void agregarCliente(Set<Integer> numCliente, Cliente cliente) {
-     
-        clientes.put(numCliente,cliente );
+        clientes.put(numCliente,cliente);
     }
 
     public Cliente getClientes(Set<Integer> llave) {
         return clientes.get(llave);
-    }
-
-    public void registrarCliente(int numCliente,String nombre,String aPaterno,String aMaterno,String direccion,int telefono){
-        this.cliente.setNombre(nombre);
-        this.cliente.setApellidoM(aPaterno);
-        this.cliente.setApellidoM(aMaterno);
-        this.cliente.setTelefono(telefono);
-        Set<Integer> set = Collections.singleton(numCliente);//Pasa de ser un int a ser un set Integer
-        agregarCliente(set, cliente);
     }
 
     //getters-setters

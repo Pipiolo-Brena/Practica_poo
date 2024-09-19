@@ -1,12 +1,13 @@
 package Clases.Usuarios;
 
+import java.time.LocalDateTime;
+import java.util.Set;
 /**
  * Cliente
  */
 
  /*
 Métodos del objeto cliente:
-registrarCliente: Permite registrar un nuevos clientes.
 modificarDatos(será para cada dato separado o juntos): Modifica los datos del cliente que se requiera.
 verDatosCliente: Muestra la información del cliente.
  */
@@ -17,9 +18,20 @@ public class Cliente {
     private String apellidoM;
     private String direccion;
     private int telefono;
-    private String fechaRegistro;
+    private LocalDateTime fechaRegistro;
     private Cuenta cuenta;
     
+    public Cliente(Set<Integer> numCliente,String nombre, String apellidoP,String apellidoM,String direccion,int telefono){
+        this.nombre=nombre;
+        this.apellidoP=apellidoP;
+        this.apellidoM=apellidoM;
+        this.direccion=direccion;
+        this.telefono =telefono;
+        this.fechaRegistro= LocalDateTime.now();
+
+        this.cuenta = new Cuenta(numCliente);
+        contadorClientes++;
+    }
 
     public static int getContadorClientes() {//metodo estatico
         return contadorClientes;
@@ -45,16 +57,16 @@ public class Cliente {
         return telefono;
     }
 
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
     public String getNombre() {
         return nombre;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
     }
 
     public void setDireccion(String direccion) {
@@ -65,8 +77,15 @@ public class Cliente {
         return direccion;
     }
 
-    
+    public Cuenta getCuenta() {
+        return cuenta;
+    }
+
     public String toString() {//para convertir a cadena.
-        return nombre + " - " + telefono +  " - "+direccion+")";
+        return "Numero de Cuenta: "+cuenta.getNumCuenta()+ "\\n"+
+                "Nombre: "+nombre +apellidoP+apellidoP+ "\\n"+
+                "Telefono: " + telefono +"\\n" + 
+                "Direccion: "+direccion+"\\n" + 
+                "Telefono: "+fechaRegistro+"\\n";
     }
 }
