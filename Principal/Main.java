@@ -20,9 +20,9 @@ public class Main {
             System.out.println("""
             ----Administrador de computadoras---
             1. Registrar Nuevo cliente 
-            2. Operaciones de caja
-            3. Ver información de cliente  
-            4. Modificar datos de cliente
+            2. Ver información de cliente  
+            3. Modificar datos de cliente
+            4. Operaciones de caja
             5. Salir
             Ingresa tu opcion deseadafnfnfn
             """);
@@ -30,10 +30,10 @@ public class Main {
 
             switch (op) {
                 case 1 -> {
-                    metodos.nuevoCliente();
+                    metodos.nuevoCliente(banco);
                 }
                 case 2-> {
-                    metodos.operaciones();
+                    metodos.modificarDatos();
 
                 }   
                 case 3-> {
@@ -41,8 +41,7 @@ public class Main {
 
                 }
                 case 4-> {
-                    metodos.modificarDatos();
-
+                    metodos.operaciones();
 
                 }
         

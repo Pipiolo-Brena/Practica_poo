@@ -1,8 +1,5 @@
 package Clases.Usuarios;
 
-import java.util.ArrayList;
-import Clases.Otras.Direccion;
-
 /**
  * Cliente
  */
@@ -18,7 +15,7 @@ public class Cliente {
     private String nombre;
     private String apellidoP;
     private String apellidoM;
-    private Direccion direccion;
+    private String direccion;
     private int telefono;
     private String fechaRegistro;
     private Cuenta cuenta;
@@ -60,8 +57,16 @@ public class Cliente {
         this.telefono = telefono;
     }
 
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
     
     public String toString() {//para convertir a cadena.
-        return nombre + " - " + telefono +  " - "+direccion.toString()+")";
+        return nombre + " - " + telefono +  " - "+direccion+")";
     }
 }

@@ -1,6 +1,7 @@
 package  Clases.Otras;
 import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 
@@ -11,14 +12,15 @@ public class Banco {
     private String telefono;
     private String horario;
     private Direccion direccion;
-    private Hashtable<Set<Integer>,Cliente> clientes;
+    private Cliente cliente;
+    private HashMap<Set<Integer>,Cliente> clientes;
 
     public Banco(String nombre, String telefono, String horario,String municipio, String colonia, int codigoPostal, String calle) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.horario = horario;
         this.direccion = new Direccion(municipio, colonia, codigoPostal, calle); //Se corrige y se inicializa la dirección
-        this.clientes = new Hashtable<Set<Integer>,Cliente>();//objetos clientes
+        this.clientes = new HashMap<Set<Integer>,Cliente>();//objetos clientes
         
     }
 
@@ -28,18 +30,28 @@ public class Banco {
         this.direccion.setCodigoPostal(codigoPostal);
         this.direccion.setCalle(calle);
     }
-
+    
     public Direccion getDireccion(){
         return direccion;
     }
 
     //Corresponde a clientes
-    public void agregarCliente(Integer llave, Cliente cliente) {
-        clientes.put(llave, cliente);
+    public void agregarCliente(Set<Integer> numCliente, Cliente cliente) {
+     
+        clientes.put(numCliente,cliente );
     }
 
     public Cliente getClientes(Set<Integer> llave) {
-        clientes.get(llave);
+        return clientes.get(llave);
+    }
+
+    public void registrarCliente(int numCliente,String nombre,String aPaterno,String aMaterno,String direccion,int telefono){
+        this.cliente.setNombre(nombre);
+        this.cliente.setApellidoM(aPaterno);
+        this.cliente.setApellidoM(aMaterno);
+        this.cliente.setTelefono(telefono);
+        Set<Integer> set = Collections.singleton(numCliente);//Pasa de ser un int a ser un set Integer
+        agregarCliente(set, cliente);
     }
 
     //getters-setters
