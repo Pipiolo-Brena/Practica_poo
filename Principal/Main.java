@@ -3,11 +3,9 @@ package Principal;
  * Main
  */
 import java.util.Scanner;
-import java.util.Set;
-import java.util.Hashtable;
+
 
 import Clases.Banco.Banco;
-import Clases.Usuarios.Cliente;
 import Metodos.metodos;
 
 public class Main {
@@ -33,11 +31,15 @@ public class Main {
                     metodos.nuevoCliente(banco);
                 }
                 case 2-> {
-                    metodos.modificarDatos();
+                    System.out.println("Ingresa el numero de cliente para ver la informacion");
+                    int numCliente=entrada.nextInt();
+                    metodos.modificarCliente(banco,numCliente);
 
                 }   
                 case 3-> {
-                    metodos.infoCliente();
+                    System.out.println("Ingresa el numero de cliente para ver la informacion");
+                    int numCliente=entrada.nextInt();
+                    metodos.infoCliente(banco, numCliente);
 
                 }
                 case 4-> {

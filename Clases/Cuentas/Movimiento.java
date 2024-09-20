@@ -1,4 +1,4 @@
-package Clases.Usuarios;
+package Clases.Cuentas;
 import java.time.LocalDateTime;
 /**
  * Movimiento
