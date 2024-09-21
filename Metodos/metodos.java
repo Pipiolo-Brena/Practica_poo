@@ -16,8 +16,9 @@ public class metodos {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese los datos del cliente:");
         System.out.print("Número de cliente: ");
-        Integer numCliente = scanner.nextInt();
-
+        int numCliente = scanner.nextInt();
+        Integer num=numCliente;
+        scanner.nextLine();
         System.out.print("Nombre: ");
         String nombre = scanner.nextLine();
         System.out.print("Apellido Paterno: ");
@@ -29,7 +30,7 @@ public class metodos {
         System.out.print("Teléfono: ");
         int telefono = scanner.nextInt();
 
-        banco.registrarCliente(numCliente, nombre, aPaterno, aMaterno, direccion, telefono);
+        banco.registrarCliente(num, nombre, aPaterno, aMaterno, direccion, telefono);
 
     }
 
@@ -59,7 +60,7 @@ public class metodos {
                             int monto=entrada.nextInt();
                             System.out.println("¿A cuentos meses se desea ingresar la inversion?");
                             int diasInversion=entrada.nextInt();
-                            cliente.abrirCuentaInversion(monto, diasInversion);
+                            System.out.println(cliente.abrirCuentaInversion(monto, diasInversion));
                         }else System.out.println("El cliente ya tiene una cuenta de inversion");
 
                     }else if (cuenta==2) {
@@ -78,11 +79,11 @@ public class metodos {
                     operacionesCuenta(cliente, "Credito");
                 }
         
-                case 6 -> System.out.println("¡Gracias por usar el programa! Hasta luego.");
+                case 5 -> System.out.println("¡Gracias por usar el programa! Hasta luego.");
                 default -> System.out.println("Opción inválida. Por favor, intente de nuevo.");
             }
 
-        }while(op!=6);
+        }while(op!=5);
     }
 
    public static void infoCliente(Banco banco,int numCliente){
@@ -123,42 +124,47 @@ public class metodos {
 
     public static void operacionesCuenta(Cliente cliente,String tipo){
         Scanner entrada= new Scanner(System.in);
+        int op;
         if(cliente.cuentaExiste(tipo)){
-            Cuenta cuenta = cliente.getCuenta(tipo);
-            System.out.println("""
-            ----Operaciones Generales de cuenta---
-            1. Retirar Dinero
-            2. Depositar dinero 
-            3. Ver datos de cuenta
-            4. Ver movimientos
-            Ingresa tu opcion deseada
-            """);
-            int op=entrada.nextInt();
+            do{
+                Cuenta cuenta = cliente.getCuenta(tipo);
+                System.out.println("""
+                ----Operaciones Generales de cuenta---
+                1. Retirar Dinero
+                2. Depositar dinero 
+                3. Ver datos de cuenta
+                4. Ver movimientos
+                5. Salir de cuenta
+                Ingresa tu opcion deseada
+                """);
+                op=entrada.nextInt();
 
-            switch (op) {
-                case 1 -> {
-                    System.out.println("¿Cual es el monto que desea retirar de su cuenta?");
-                    double monto=entrada.nextInt();
-                    System.out.println(cliente.retirarDinero(tipo, monto)); 
-                    cuenta.agregarMovimiento(new Movimiento(monto, "Retiro de dinero"));
-                }
-                case 2-> {
-                    System.out.println("¿Cual es el monto que desea depositar a su cuenta?");
-                    double monto=entrada.nextInt();
-                    System.out.println(cliente.depositarDinero(tipo, monto)); 
-                    cuenta.agregarMovimiento(new Movimiento(monto, "Deposito de dinero"));
-                } 
-                case 3-> {
-                    System.out.println(cuenta);
-                }  
-                case 4-> {
-                    ArrayList<Movimiento> movimientos= cuenta.getMovimientos();
-                    for (Movimiento movimiento : movimientos) {
-                        System.out.println(movimiento);
+                switch (op) {
+                    case 1 -> {
+                        System.out.println("¿Cual es el monto que desea retirar de su cuenta?");
+                        double monto=entrada.nextInt();
+                        System.out.println(cliente.retirarDinero(tipo, monto)); 
+                        cuenta.agregarMovimiento(new Movimiento(monto, "Retiro de dinero"));
                     }
+                    case 2-> {
+                        System.out.println("¿Cual es el monto que desea depositar a su cuenta?");
+                        double monto=entrada.nextInt();
+                        System.out.println(cliente.depositarDinero(tipo, monto)); 
+                        cuenta.agregarMovimiento(new Movimiento(monto, "Deposito de dinero"));
+                    } 
+                    case 3-> {
+                        System.out.println(cuenta);
+                    }  
+                    case 4-> {
+                        ArrayList<Movimiento> movimientos= cuenta.getMovimientos();
+                        for (Movimiento movimiento : movimientos) {
+                            System.out.println(movimiento);
+                        }
+                    }
+                    case 5-> System.out.println("Saliendo de cuenta de "+tipo);
+                    default -> System.out.println("Opción inválida");
                 }
-                default -> System.out.println("Opción inválida");
-            }
+            }while(op!=5);
         }else System.out.println("El clinte no tiene cuanta de "+ tipo);
     }
 

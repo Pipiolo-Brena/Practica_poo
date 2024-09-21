@@ -33,13 +33,13 @@ public class Main {
                 case 2-> {
                     System.out.println("Ingresa el numero de cliente para ver la informacion");
                     int numCliente=entrada.nextInt();
-                    metodos.modificarCliente(banco,numCliente);
+                    metodos.infoCliente(banco,numCliente);
 
                 }   
                 case 3-> {
                     System.out.println("Ingresa el numero de cliente para ver la informacion");
                     int numCliente=entrada.nextInt();
-                    metodos.infoCliente(banco, numCliente);
+                    metodos.modificarCliente(banco, numCliente);
 
                 }
                 case 4-> {

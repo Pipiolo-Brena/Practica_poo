@@ -29,6 +29,7 @@ public class Cliente {
         this.apellidoM=apellidoM;
         this.direccion=direccion;
         this.telefono =telefono;
+        this.cuentas= new HashMap<String, Cuenta>();
         this.fechaRegistro= LocalDateTime.now();
 
         //se agrega nueva cuenta
@@ -144,13 +145,11 @@ public class Cliente {
 
     //Todos los datos del usuario
     public String toString() {
-        return "Numero de Cuenta: "+numCuenta+ "\\n"+
-                "Nombre: "+nombre +apellidoP+apellidoP+ "\\n"+
-                "Telefono: " + telefono +"\\n" + 
-                "Direccion: "+direccion+"\\n" + 
-                "Telefono: "+fechaRegistro+"\\n"+
-                "Cuenta debito: "+getCuenta("Debito").getSaldo()+"\\n"+
-                "Cuenta Inversion: "+getCuenta("Inversion").getSaldo()+"\\n";
-
+        return "Numero de Cuenta: "+numCuenta+ "\n"+
+                "Nombre: "+nombre +" "+apellidoP+" "+apellidoM+ "\n"+
+                "Telefono: " + telefono +"\n" + 
+                "Direccion: "+direccion+"\n" + 
+                "Fecha de registro: "+fechaRegistro+"\n"+
+                "Cuenta debito: "+getCuenta("Debito").getSaldo()+"\n";
     }
 }
