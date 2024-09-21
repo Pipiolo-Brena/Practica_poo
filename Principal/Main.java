@@ -43,7 +43,9 @@ public class Main {
 
                 }
                 case 4-> {
-                    metodos.operaciones();
+                    System.out.println("Ingresa el numero de cliente");
+                    int numCliente=entrada.nextInt();
+                    metodos.operaciones(banco, numCliente);
 
                 }
         

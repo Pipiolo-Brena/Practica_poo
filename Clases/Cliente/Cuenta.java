@@ -1,26 +1,14 @@
-package Clases.Cuentas;
+package Clases.Cliente;
 
 import java.util.ArrayList;
+
+import Clases.Cuentas.Movimiento;
 /**
  * Cuenta
- */
-/*
-
-Métodos del objeto cuenta:
-ingresarDinero: Aumenta el dinero de la cuenta.
-retirarDinero: Disminuye el dinero.
-verSaldo: Muestra el dinero actual.
-verMovimientos: Muestra la lista de movimientos de la cuenta.
  */
 public class Cuenta {
     private Double saldo;
     private ArrayList<Movimiento> movimientos;
-
-    public Cuenta(){
-        this.saldo= 0.0;
-        this.movimientos= new ArrayList<Movimiento>();
-        agregarMovimiento(new Movimiento("Creacion de cuenta"));
-    }
 
     public Cuenta(double saldo){
         this.saldo= saldo;
@@ -39,5 +27,9 @@ public class Cuenta {
     public void setSaldo(double saldo) { 
         this.saldo=saldo; 
     }  
+
+    public ArrayList<Movimiento> getMovimientos(){
+        return movimientos;
+    }
 
 }
