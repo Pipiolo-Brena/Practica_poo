@@ -16,13 +16,14 @@ public class Main {
         int op;
         do{
             System.out.println("""
-            ----Administrador de computadoras---
+            ----ADMINISTRADOR DE BANCO---
             1. Registrar Nuevo cliente 
             2. Ver información de cliente  
             3. Modificar datos de cliente
             4. Operaciones de caja
-            5. Salir
-            Ingresa tu opcion deseadafnfnfn
+            5. Operaciones de caja
+            6. Salir
+            Ingresa tu opcion deseada
             """);
             op=entrada.nextInt();
 
@@ -48,12 +49,17 @@ public class Main {
                     metodos.operaciones(banco, numCliente);
 
                 }
+
+                case 5-> {
+                    System.out.println(banco);
+
+                }
         
-                case 5 -> System.out.println("¡Gracias por usar el programa! Hasta luego.");
+                case 6 -> System.out.println("¡Gracias por usar el programa! Hasta luego.");
                 default -> System.out.println("Opción inválida. Por favor, intente de nuevo.");
             }
 
-        }while(op!=5);
+        }while(op!=6);
         entrada.close();
     }
 }

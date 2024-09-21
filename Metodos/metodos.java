@@ -40,9 +40,9 @@ public class metodos {
         int op;
         do{
             System.out.println("""
-            ----Operaciones de la cuenta---
+            ----OPERACIONES DE CLIENTE--
             1. Crear cuenta(Inversion, Credito aplica en el supuesto que no tenga una o las dos)
-            2. Cienta de debito
+            2. Cuenta de debito
             3. Cuenta de inversion
             4. Tarjeta de credito
             5. Salir a menu general
@@ -79,8 +79,8 @@ public class metodos {
                     operacionesCuenta(cliente, "Credito");
                 }
         
-                case 5 -> System.out.println("¡Gracias por usar el programa! Hasta luego.");
-                default -> System.out.println("Opción inválida. Por favor, intente de nuevo.");
+                case 5 -> System.out.println("¡Gracias por usar el programa! Hasta luego.\n");
+                default -> System.out.println("Opción inválida. Por favor, intente de nuevo.\n");
             }
 
         }while(op!=5);
@@ -115,9 +115,9 @@ public class metodos {
             modificarCliente.setAMaterno(nuevoAMaterno);
             modificarCliente.setDireccion(nuevaDireccion);
             modificarCliente.setTelefono(nuevoTelefono);
-            System.out.println("Datos modificados con éxito.");
+            System.out.println("Datos modificados con éxito. \n");
         }else{
-            System.out.println("Cliente no encontrado.");
+            System.out.println("Cliente no encontrado.\n");
         }
     }
 
@@ -129,7 +129,7 @@ public class metodos {
             do{
                 Cuenta cuenta = cliente.getCuenta(tipo);
                 System.out.println("""
-                ----Operaciones Generales de cuenta---
+                ----OPERACIONES DE CUENTA---
                 1. Retirar Dinero
                 2. Depositar dinero 
                 3. Ver datos de cuenta
@@ -161,11 +161,11 @@ public class metodos {
                             System.out.println(movimiento);
                         }
                     }
-                    case 5-> System.out.println("Saliendo de cuenta de "+tipo);
-                    default -> System.out.println("Opción inválida");
+                    case 5-> System.out.println("Saliendo de cuenta de "+tipo+"\n");
+                    default -> System.out.println("Opción inválida\n");
                 }
             }while(op!=5);
-        }else System.out.println("El clinte no tiene cuanta de "+ tipo);
+        }else System.out.println("El clinte no tiene cuanta de "+ tipo+"\n");
     }
 
 }

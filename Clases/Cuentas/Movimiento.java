@@ -26,6 +26,6 @@ public class Movimiento {
     }
 
     public String toString() {
-        return "Tipo: " + tipo + "\n Cantidad: " + cantidad + "\t Fecha : "+ fecha;
+        return "Tipo: " + tipo + "\n"+ "Cantidad: " + cantidad + "\t Fecha : "+ fecha;
     }
 }

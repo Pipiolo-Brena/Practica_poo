@@ -72,6 +72,9 @@ public class Banco {
     }
 
     public String toString() {
-        return "Librería: " + nombre + "\nTeléfono: " + telefono + "\nHorario: " + horario + "\nDirección: " + direccion.toString();
+        return "Librería: " + nombre + "\n"+
+                "Teléfono: " + telefono + "\n"+
+                "Horario: " + horario + "\n"+
+                "Dirección: " + direccion.toString();
     }
 }

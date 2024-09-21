@@ -18,8 +18,8 @@ public class Inversion extends Cuenta {
     }
 
     public String toString(){
-        return "Inversion: "+ getSaldo()+"\\n"+
-                "Rendimiento: "+rendimiento+"\\n"+
+        return "Inversion: "+ getSaldo()+"\n"+
+                "Rendimiento: "+rendimiento+"\n"+
                 "Tiempo de inversion en meses: "+meses;
     }
 }

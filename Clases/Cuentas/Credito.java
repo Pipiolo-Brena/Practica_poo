@@ -33,7 +33,7 @@ public class Credito extends Cuenta {
     
     public String toString() {
         return "Numero de Tarjeta de Credito: " + numTarjeta + "\n"+
-                "Limite de Credito=" + limiteCredito+"\\n"+
+                "Limite de Credito=" + limiteCredito+"\n"+
                 "Credito"+getSaldo();
     }
 
