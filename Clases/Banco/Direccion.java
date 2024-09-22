@@ -12,10 +12,7 @@ public class Direccion{
         this.colonia = colonia;
         this.codigoPostal = codigoPostal;
         this.calle = calle;
-        /*setMunicipio(municipio);
-        setColonia(colonia);
-        setCodigoPostal(codigoPostal);
-        setCalle(calle);*/
+        
     }
 
     public void setMunicipio(String municipio){

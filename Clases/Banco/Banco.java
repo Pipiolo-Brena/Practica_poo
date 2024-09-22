@@ -9,14 +9,14 @@ public class Banco {
     private String telefono;
     private String horario;
     private Direccion direccion;
-    private HashMap<Integer,Cliente> clientes;
+    private HashMap<String,Cliente> clientes;
 
     public Banco(String nombre, String telefono, String horario,String municipio, String colonia, int codigoPostal, String calle) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.horario = horario;
-        this.direccion = new Direccion(municipio, colonia, codigoPostal, calle); //Se corrige y se inicializa la dirección
-        this.clientes = new HashMap<Integer,Cliente>();//objetos clientes
+        this.direccion = new Direccion(municipio, colonia, codigoPostal, calle); //Se inicializa la dirección
+        this.clientes = new HashMap<String,Cliente>();//objetos clientes
         
     }
 
@@ -32,17 +32,17 @@ public class Banco {
     }
 
     //Corresponde a clientes
-    public void registrarCliente(Integer numCliente,String nombre,String aPaterno,String aMaterno,String direccion,int telefono){
+    public void registrarCliente(String numCliente,String nombre,String aPaterno,String aMaterno,String direccion,String telefono){
         Cliente cliente= new Cliente(numCliente, nombre,aPaterno,  aMaterno,direccion,telefono);
         agregarCliente(numCliente, cliente);
         System.out.println("Registro exitoso.");
     }
 
-    public void agregarCliente(Integer numCliente, Cliente cliente) {
+    public void agregarCliente(String numCliente, Cliente cliente) {
         clientes.put(numCliente,cliente);
     }
 
-    public Cliente buscarCliente(Integer llave) {
+    public Cliente buscarCliente(String llave) {
         return clientes.get(llave);
     }
 
@@ -72,9 +72,10 @@ public class Banco {
     }
 
     public String toString() {
-        return "Librería: " + nombre + "\n"+
+        return "Banco: " + nombre + "\n"+
                 "Teléfono: " + telefono + "\n"+
                 "Horario: " + horario + "\n"+
-                "Dirección: " + direccion.toString();
+                "Dirección: " + direccion.toString()+"\n"+
+                "Nùmero de clientes en nuestra sucursal: "+Cliente.getContadorClientes()+"\n";
     }
 }

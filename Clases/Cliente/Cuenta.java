@@ -13,7 +13,7 @@ public class Cuenta {
     public Cuenta(double saldo){
         this.saldo= saldo;
         this.movimientos= new ArrayList<Movimiento>();
-        agregarMovimiento(new Movimiento("Creacion de cuenta"));
+        agregarMovimiento(new Movimiento("Creación de cuenta"));
     }
 
     public void agregarMovimiento(Movimiento movimiento){

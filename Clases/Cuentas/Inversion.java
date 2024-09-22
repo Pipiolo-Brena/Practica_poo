@@ -14,12 +14,12 @@ public class Inversion extends Cuenta {
     }
 
     private double calcularRendimiento(int meses){
-        return meses<3?0.2:meses>3&meses<8?0.25:0.35;
+        return (meses < 3) ? 0.2 : ((meses > 3) && (meses < 8)) ? 0.25 : 0.35;
     }
 
     public String toString(){
-        return "Inversion: "+ getSaldo()+"\n"+
+        return "Inversión: "+ getSaldo()+"\n"+
                 "Rendimiento: "+rendimiento+"\n"+
-                "Tiempo de inversion en meses: "+meses;
+                "Tiempo de inversión en meses: "+meses;
     }
 }

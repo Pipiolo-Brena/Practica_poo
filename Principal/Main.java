@@ -21,9 +21,9 @@ public class Main {
             2. Ver información de cliente  
             3. Modificar datos de cliente
             4. Operaciones de caja
-            5. Operaciones de caja
+            5. Datos de Banco
             6. Salir
-            Ingresa tu opcion deseada
+            Ingresa tu opción deseada
             """);
             op=entrada.nextInt();
 
@@ -32,22 +32,25 @@ public class Main {
                     metodos.nuevoCliente(banco);
                 }
                 case 2-> {
-                    System.out.println("Ingresa el numero de cliente para ver la informacion");
-                    int numCliente=entrada.nextInt();
+                    System.out.println("Ingresa el número de cliente para ver la información");
+                    String numCliente=entrada.nextLine();
                     metodos.infoCliente(banco,numCliente);
 
                 }   
                 case 3-> {
-                    System.out.println("Ingresa el numero de cliente para ver la informacion");
-                    int numCliente=entrada.nextInt();
+                    System.out.println("Ingresa el número de cliente para ver la información");
+                    String numCliente=entrada.nextLine();
                     metodos.modificarCliente(banco, numCliente);
 
                 }
                 case 4-> {
-                    System.out.println("Ingresa el numero de cliente");
-                    int numCliente=entrada.nextInt();
-                    metodos.operaciones(banco, numCliente);
-
+                    System.out.println("Ingresa el número de cliente");
+                    String numCliente=entrada.nextLine();
+                    numCliente = numCliente.replaceAll("[^0-9]", "");
+                    if(banco.buscarCliente(numCliente) != null)  //Se agregó este control por si el número de usuario de cliente no se encuentra
+                        metodos.operaciones(banco, numCliente);
+                    else
+                        System.out.println("Cliente no encontrado.\n");
                 }
 
                 case 5-> {
@@ -55,7 +58,7 @@ public class Main {
 
                 }
         
-                case 6 -> System.out.println("¡Gracias por usar el programa! Hasta luego.");
+                case 6 -> System.out.println("¡Gracias por usar el programa! Hasta luego. \n Nos ubicamos en "+banco.getDireccion());
                 default -> System.out.println("Opción inválida. Por favor, intente de nuevo.");
             }
 

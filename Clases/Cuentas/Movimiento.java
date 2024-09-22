@@ -1,9 +1,11 @@
 package Clases.Cuentas;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 /**
  * Movimiento
  */
 public class Movimiento {
+    private DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy 'a las' hh:mm:ss a");
     private LocalDateTime fecha;
     private double cantidad;
     private String tipo;
@@ -26,6 +28,7 @@ public class Movimiento {
     }
 
     public String toString() {
-        return "Tipo: " + tipo + "\n"+ "Cantidad: " + cantidad + "\t Fecha : "+ fecha;
+        return "Tipo: " + tipo + "\n"+ 
+                "Cantidad: " + cantidad + "\t Fecha : "+ fecha.format(formatoFecha);
     }
 }

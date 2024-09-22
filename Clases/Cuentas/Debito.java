@@ -8,6 +8,6 @@ public class Debito extends Cuenta {
     }
 
     public String toString(){
-        return "Saldo en la cuenta"+getSaldo();
+        return "Saldo en la cuenta: "+getSaldo();
     }
 }

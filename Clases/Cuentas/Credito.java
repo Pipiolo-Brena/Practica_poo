@@ -3,21 +3,23 @@ package Clases.Cuentas;
 import Clases.Cliente.Cuenta;
 
 public class Credito extends Cuenta {
-    private int numTarjeta;
-    private double limiteCredito;
+    private String numTarjeta;
+    private  double limiteCredito;
+    private final double creditoDisponible;
 
-    public Credito(int numTarjeta, double limiteCredito){
+    public Credito(String numTarjeta, double limiteCredito){
         super(limiteCredito);
         this.numTarjeta = numTarjeta;
         this.limiteCredito = limiteCredito; 
+        creditoDisponible = limiteCredito;
     }
 
     //getters - setters
-    public int getNumTarjeta() {
+    public String getNumTarjeta() {
         return numTarjeta;
     }
 
-    public void setNumTarjeta(int numTarjeta) {
+    public void setNumTarjeta(String numTarjeta) {
         this.numTarjeta = numTarjeta;
     }
 
@@ -30,11 +32,14 @@ public class Credito extends Cuenta {
         setSaldo(limiteCredito); 
     }
 
+    public double getCreditoDisponible() {
+        return creditoDisponible;
+    }
     
     public String toString() {
-        return "Numero de Tarjeta de Credito: " + numTarjeta + "\n"+
-                "Limite de Credito=" + limiteCredito+"\n"+
-                "Credito"+getSaldo();
+        return "Numero de Tarjeta de Crédito: " + numTarjeta + "\n"+
+                "Límite de Crédito=" + limiteCredito+"\n"+
+                "Crédito"+getSaldo();
     }
 
 }
